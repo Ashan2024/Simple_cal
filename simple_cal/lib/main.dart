@@ -11,7 +11,7 @@ class CalculatorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(), // Dark theme එක calculator එකට ලස්සනයි
+      theme: ThemeData.dark(), // Dark theme 
       home: const CalculatorHome(),
     );
   }
@@ -25,11 +25,11 @@ class CalculatorHome extends StatefulWidget {
 }
 
 class _CalculatorHomeState extends State<CalculatorHome> {
-  // මේවා තමයි අපේ display එකේ පේන variables
+  //  Displaying variables
   String history = "";
   String expression = "0";
 
-  // Button එකක් click කරාම වැඩ කරන function එක (දැනට නිකන් තියෙන්නේ)
+  //Button click funtion 
   void numClick(String text) {
     setState(() {
       expression = text;
@@ -67,7 +67,7 @@ class _CalculatorHomeState extends State<CalculatorHome> {
             ),
           ),
 
-          // Divider එකක් දාමු display එකයි buttons යි වෙන් වෙන්න
+          // Display Divider
           const Divider(height: 1),
 
           // 2. Buttons Grid
@@ -88,7 +88,7 @@ class _CalculatorHomeState extends State<CalculatorHome> {
     );
   }
 
-  // Row එකක් ඇතුලේ buttons ටික පිළිවෙලට හදන helper function එකක්
+  // In row buttons order  helper function 
   Widget buildButtonRow(List<String> buttons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -100,7 +100,7 @@ class _CalculatorHomeState extends State<CalculatorHome> {
             height: 75,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(), // රවුම් buttons
+                shape: const CircleBorder(), // Circle buttons
                 backgroundColor: _getBtnColor(text),
               ),
               onPressed: () => numClick(text),
@@ -118,7 +118,7 @@ class _CalculatorHomeState extends State<CalculatorHome> {
     );
   }
 
-  // Button එකේ හැඩය අනුව පාට වෙනස් කරන්න
+  // According to button shape change color 
   Color _getBtnColor(String text) {
     if (text == "C" || text == "+/-" || text == "%") return Colors.grey;
     if (["/", "x", "-", "+", "="].contains(text)) return Colors.orange;
